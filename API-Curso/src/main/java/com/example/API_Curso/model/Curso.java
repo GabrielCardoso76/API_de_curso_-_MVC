@@ -45,8 +45,8 @@ public class Curso {
         return alunos;
     }
 
-    public void setAlunos(Aluno aluno) {
-        alunos.add(aluno);
+    public void setAlunos(ArrayList<Aluno> alunos) {
+        this.alunos = alunos;
     }
 
     public Professor getProfessor() {
