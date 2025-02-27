@@ -14,18 +14,18 @@ public class CursoView {
     CursoController cursoController = new CursoController();
 
     @GetMapping
-    public List<Curso> findAll(){
-        return cursoController.findAll();
-    }
-
-    @GetMapping("/profname/{name}")
-    public List<Curso> getByTeacherName(@PathVariable String name){
-        return cursoController.getByTeacherName(name);
-    }
-
-    @GetMapping("/numerosala/{RoomNumber}")
-    public List<Curso> getByRoomNumber(@PathVariable int RoomNumber){
-        return cursoController.getByRoomNumber(RoomNumber);
+    public List<Curso> getCurso(
+            @RequestParam(required = false) String teacherName,
+            @RequestParam(required = false) Integer roomNumber
+    ){
+        if (teacherName != null){
+            return cursoController.getByTeacherName(teacherName);
+        }
+        else if(roomNumber != null){
+            return cursoController.getByRoomNumber(roomNumber);
+        } else {
+            return cursoController.findAll();
+        }
     }
 
     @GetMapping("/id/{id}")
