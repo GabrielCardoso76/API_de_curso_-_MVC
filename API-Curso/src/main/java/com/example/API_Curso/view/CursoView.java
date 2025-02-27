@@ -39,7 +39,7 @@ public class CursoView {
     }
 
     @PostMapping("/inserirEstudante/{cursoName}")
-    public boolean insertStudent(@PathVariable String cursoName,@RequestBody Aluno aluno){
+    public String insertStudent(@PathVariable String cursoName,@RequestBody Aluno aluno){
         return cursoController.insertStudent(cursoName, aluno);
     }
 

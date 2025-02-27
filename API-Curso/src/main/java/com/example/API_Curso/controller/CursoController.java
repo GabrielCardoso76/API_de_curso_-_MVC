@@ -25,8 +25,11 @@ public class CursoController {
     public boolean insert(Curso curso){
         return repository.insert(curso);
     }
-    public boolean insertStudent(String cursoName, Aluno aluno){
-        return repository.insertStudent(cursoName , aluno);
+    public String insertStudent(String cursoName, Aluno aluno){
+        String response = (repository.insertStudent(cursoName , aluno)) ? "Aluno inserido com sucesso!" :
+                "Não foi possivel inserir o aluno";
+
+        return response;
     }
     public Curso updateCursoAndTeacher(Long id,Curso curso){
         return repository.updateCursoAndTeacher(id,curso);
